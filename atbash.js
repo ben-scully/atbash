@@ -15,7 +15,7 @@ Add test/spec to your solution.
 
 
 var constant = 'abcdefghijklmnopqrstuvwxyz'
-var cipher = 'oephjizkxdawubnytvfglqsrcm'
+var cipher =   'oephjizkxdawubnytvfglqsrcm'
 var encryptedText = 'knlfgnb, sj koqj o yvnewju'
 var originalText  = '';
 
@@ -26,7 +26,7 @@ function getDecrypter(constant, cipher) {
   for(var i = 0; i < constant.length; i++) {
     var constantChar = constant[i]
     var cipherChar = cipher.charAt(i)
-    decrypter[constantChar] = cipherChar
+    decrypter[cipherChar] = constantChar
   }
 
   return decrypter
@@ -34,4 +34,23 @@ function getDecrypter(constant, cipher) {
 
 
 
-console.log(getDecrypter(constant, cipher))
+function decrypt(encryptedText, decrypter) {
+  var decryptedText = ""
+
+  for (var i = 0; i < encryptedText.length; i++) {
+    var encryptChar = encryptedText[i]
+
+    if (decrypter[encryptChar])
+      decryptedText += decrypter[encryptChar]
+    else
+      decryptedText += encryptChar
+  }
+
+  return decryptedText
+}
+
+
+
+var decrypter = getDecrypter(constant, cipher)
+
+console.log(decrypt(encryptedText, decrypter))
