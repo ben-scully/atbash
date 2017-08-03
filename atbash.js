@@ -1,20 +1,32 @@
 
 /*
-The challenge
+  CONSTANT       = 'abcdefghijklmnopqrstuvwxyz'
+  cipher         = 'oephjizkxdawubnytvfglqsrcm'
+  encrypted text = 'knlfgnb, sj koqj o yvnewju'
+  original text  = ?
 
-CONSTANT       = 'abcdefghijklmnopqrstuvwxyz'
-cipher         = 'oephjizkxdawubnytvfglqsrcm'
-encrypted text = 'knlfgnb, sj koqj o yvnewju'
-original text  = ?
+  Decrypt the given encrypted text.
+  Any character other than what you have in the constant doesn't have to be replaced.
+  Add test/spec to your solution.
 
-Decrypt the given encrypted text.
-Any character other than what you have in the constant doesn't have to be replaced.
-Add test/spec to your solution.
+  NOTES RE Test/Spec
+
+  I would test relative to the time allowed and the importance of the software/functions being written.
+  If the software/functions being written cannot fail (medical) then heavy testing.
+  If there is fault tolerance then it can be more cost effective for the customer to simply meet acceptance requirements and user acceptance.
 */
 
 
 
+// @@@ I've put some notes/comments throughout the code to illustrate possible weaknesses in my solution(s)
+// @@@ Instructions weren't clear if the code/functions might need to encrypt and decrypt both ways
+
+
+
 function getDecrypter(constant, cipher) {
+  // @@@ Might need to handle 'bad' paramters; nulls, wrong types, empty strings, 9999999 char long strings etc.
+  // @@@ Instructions weren't clear about lengths of cipher-constant, what type of characters might exist etc
+
   var decrypter = {}
 
   for(var i = 0; i < constant.length; i++) {
@@ -58,7 +70,7 @@ var originalText2 =   'why so serious?'
 var constant3 =       'abcdefghijklmnopqrstuvwxyz'
 var cipher3 =         'oephjizkxdawubnytvfglqsrcm'
 var encryptedText3 =  'knlfgnb, sj koqj o yvnewju'
-var originalText3  =  '?'
+var originalText3  =  '?'     // houston, we have a problem
 
 
 
